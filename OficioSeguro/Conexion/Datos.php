@@ -1,19 +1,16 @@
 <?php
 
-function conectarse()
+$conexion =  mysql_connect("localhost","root");
+if(!$conexion)
 {
- $conectarse =mysqli_connect("localhost","root","")  or die(mysql_error());
- 
- if(Conectarse)
-    {
-	
-	mysql_selectdb("isii",$conectarse);
-	return($conectarse);
-
-    }
- else
-    {
-	return("-1");
-    }
+    die("no se ha podido conectar al servidor MYSQL: ".mysql_error());	
 }
+
+$bd_seleccionada = mysql_select_db("Proyecto",$conexion);
+
+if(!$bd_seleccionada)
+{
+    die("no se ha podido seleccionar la base de datos: ".mysql_error());	
+}
+
 ?>
