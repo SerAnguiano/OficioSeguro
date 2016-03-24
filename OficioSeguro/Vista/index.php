@@ -30,15 +30,15 @@
 			    	<form accept-charset="UTF-8" role="form">
                     <fieldset>
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="E-mail" name="email" type="text">
+			    		    <input Class="form-control required" placeholder="E-mail" name="email" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
+			    			<input Class="form-control required" placeholder="Password" name="password" type="password" value="">
 			    		</div>
 			    		<div class="checkbox">
 			    	    	
 			    	    </div>
-			    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+                        <input class="btn btn-lg btn-primary btn-block" type="button" value="Login" OnClick="return Validar()">
 			    	</fieldset>
 			      	</form>
                                     
@@ -49,3 +49,24 @@
 </div>
     </body>
 </html>
+<script>
+function Validar() {
+            var error = 0;
+            var inputs = document.getElementsByClassName('form-control required');
+            for (var z = 0; z < inputs.length; z++) {
+                var input = document.getElementsByName(inputs[z].name)[0];
+                if (input.value == "" || input.value == "0") {
+                    var formgroup = input.parentNode.parentElement;
+                    formgroup.className = 'form-group has-error required';
+                    error = error + 1;
+                }
+                else {
+                    var formgroup = input.parentNode.parentElement;
+                    formgroup.className = 'form-group required';
+                }
+            }
+            if (error > 0) {
+                return false;
+            }
+        }
+       </script>
