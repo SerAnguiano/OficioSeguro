@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE 7]><html class = "ie7"><![endif]-->
+<!--[if IE 8]><html class = "ie8"><![endif]-->
+<!--[if IE 9]><html class = "ie9"><![endif]-->
+<!--[if !(IE 7) | !(IE 8) | !(IE 9) ]><!-->
+
+<!--<![endif]-->
+<head>
+<title>Opening - Job Board HTML Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+<script type="text/javascript" src="../js/script.js" ></script>
+<link href="../css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<!--[if IE]><script src="js/html5.js"></script><link rel="stylesheet" type="text/css" href="css/ie.css"><![endif]-->
+</head>
+
+  <div class="main clearfix">
+    <div class="content">
+      <form class="opening-search" method="post" action="">
+        <div class="search-top clearfix">
+          <div class="search-field">
+            <label >Cargo<br />
+              <input class="with-dropdown" name="keyword" id="keyword" type="text" />
+            </label>
+            <ul id="dropdown-keyword" class="dropdown">
+              <li>
+                <input name="programming" type="checkbox" />
+                Programming</li>
+              <li>
+                <input name="web_design" type="checkbox" />
+                Web design</li>
+              <li>
+                <input name="graphic_design" checked="checked" type="checkbox" />
+                Graphic design</li>
+              <li>
+                <input name="software_development" type="checkbox" />
+                Software development</li>
+              <li>
+                <input name="other" type="checkbox" />
+                Other</li>
+            </ul>
+            <!-- #keyword -->
+          </div>
+          <!-- .search-field -->
+          <div class="search-field">
+            <label >Lugar<br />
+              <input class="with-dropdown" name="location" id="location" type="text" />
+              <a class="zip-codes" href="#">Codigo</a></label>
+            <!-- #keyword -->
+            <ul id="dropdown-location" class="dropdown">
+              <li>
+                <input name="new_york" type="checkbox" />
+                New York</li>
+              <li>
+                <input name="washngton" type="checkbox" />
+                Washington</li>
+              <li>
+                <input name="los_angeles" checked="checked" type="checkbox" />
+                Los Angeles</li>
+              <li>
+                <input name="miami" type="checkbox" />
+                Miami</li>
+              <li>
+                <input name="london" type="checkbox" />
+                London</li>
+            </ul>
+            <!-- #location -->
+          </div>
+          <!-- .search-field -->
+        </div>
+        <!-- .search-top -->
+        <div class="search-bottom">
+          <label>
+            <input class="dark" name="full-time" type="checkbox" />
+            </label>
+          <label>
+            <input class="dark" name="contract" type="checkbox" />
+            </label>
+          <label>
+            <input class="dark" checked name="freelance" type="checkbox" />
+            </label>
+        </div>
+        <!-- .search-bottom -->
+      </form>
+      <!-- .opening-search -->
+     
+      <!-- .warning -->
+      <div class="post">
+        <div class="post-header">
+          <p class="results"><span>5</span> of <span>62</span> opening(-s)</p>
+          <label class="sort">Ordenar:
+            <select>
+              <option>Fecha</option>
+              <option>Reputacion</option>
+            </select>
+          </label>
+          <!-- .sort -->
+        </div>
+        <!-- .post-header -->
+        <div class="table-wrapper">
+          <table class="openings">
+            <tr class="opening">
+              <td class="opening-logo"><div class="star"></div>
+                <a href="opening.html"><img src="../images/opening-logo.png" alt="Logo" /></a></td>
+              <td class="opening-meta"><h2><a href="opening.html" class="opening-name">Senior Graphic Designer</a></h2>
+                <h3><a href="company_profile.html" class="company">BestWebHolding</a></h3></td>
+              <td class="opening-type"><p class="freelance">Freelance</p></td>
+              <td class="opening-location" ><p><a href="#">New York</a></p></td>
+            </tr>
+            <!-- .opening -->
+            <tr class="opening">
+              <td class="opening-logo"><div class="star star-checked"></div>
+                <a href="opening.html"><img src="../images/opening-logo.png" alt="Logo" /></a></td>
+              <td class="opening-meta"><h2><a href="opening.html" class="opening-name">Web Developer</a></h2>
+                <h3><a href="company_profile.html" class="company">Envato</a></h3></td>
+              <td class="opening-type"><p class="full-time">Full-time</p></td>
+              <td class="opening-location" ><p><a href="#">Washington</a></p></td>
+            </tr>
+            <!-- .opening -->
+            <tr class="opening">
+              <td class="opening-logo"><div class="star"></div>
+                <a href="opening.html"><img src="../images/opening-logo.png" alt="Logo" /></a></td>
+              <td class="opening-meta"><h2><a href="opening.html" class="opening-name">UX Designer</a></h2>
+                <h3><a href="company_profile.html" class="company">BestWebHolding</a></h3></td>
+              <td class="opening-type"><p class="contract">Contract</p></td>
+              <td class="opening-location" ><p><a href="#">Los Angeles</a></p></td>
+            </tr>
+            <!-- .opening -->
+            <tr class="opening">
+              <td class="opening-logo"><div class="star"></div>
+                <a href="opening.html"><img src="../images/opening-logo.png" alt="Logo" /></a></td>
+              <td class="opening-meta"><h2><a href="opening.html" class="opening-name">Product Manager</a></h2>
+                <h3><a href="company_profile.html" class="company">BestWebHolding</a></h3></td>
+              <td class="opening-type"><p class="freelance">Freelance</p></td>
+              <td class="opening-location" ><p><a href="#">Miami</a></p></td>
+            </tr>
+            <!-- .opening -->
+            <tr class="opening">
+              <td class="opening-logo"><div class="star"></div>
+                <a href="opening.html"><img src="../images/opening-logo.png" alt="Logo" /></a></td>
+              <td class="opening-meta"><h2><a href="opening.html" class="opening-name">ROR Developer</a></h2>
+                <h3><a href="company_profile.html" class="company">Envato</a></h3></td>
+              <td class="opening-type"><p class="freelance">Freelance</p></td>
+              <td class="opening-location" ><p><a href="#">London</a></p></td>
+            </tr>
+            <!-- .opening -->
+          </table>
+          <!-- .openings -->
+        </div>
+        <!-- .table-wrapper -->
+      </div>
+      <!-- #openings -->
+
+ 
+</div>
+<!-- .wrapper -->

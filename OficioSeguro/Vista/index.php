@@ -29,16 +29,21 @@
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form">
                     <fieldset>
-			    	  	<div class="form-group">
+			    	  	<div class="form-group has-feedback">
 			    		    <input Class="form-control required" placeholder="E-mail" name="email" type="text">
+                                            <i class="glyphicon glyphicon glyphicon-lock form-control-feedback"></i>
 			    		</div>
-			    		<div class="form-group">
+			    		<div class="form-group has-feedback">
 			    			<input Class="form-control required" placeholder="Password" name="password" type="password" value="">
-			    		</div>
+                                                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                                        </div>
 			    		<div class="checkbox">
 			    	    	
 			    	    </div>
-                        <input class="btn btn-lg btn-primary btn-block" type="button" value="Login" OnClick="return Validar()">
+                        <input class="btn btn-lg btn-primary btn-block" type="button" value="Login" OnClick="return Validar()"><br/>
+                        <div align="center">
+                            <h5>¿No tienes cuenta? Registrate ahora <a href="Registro.php">aquí</a></h5>
+                        </div>
 			    	</fieldset>
 			      	</form>
                                     
