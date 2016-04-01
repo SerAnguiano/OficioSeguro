@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/03/2016, 11:34:53 PM
+    Author     : sergio
+*/
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+body{
+    background: url("../Images/Google Maps_002.png");
+	background-color: #444;
+    background: url("../Images/pinlayer1.png"),url(../Images/pinlayer2.png),url("../Images/Google Maps_002.png");    
+}
+
+.vertical-offset-100{
+    padding-top:100px;
+}

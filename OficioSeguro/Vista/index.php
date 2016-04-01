@@ -22,7 +22,7 @@
 			 	</div>
                      <div class="panel-heading">                                
                                 <div align='center' class="row-fluid user-row">
-                                    <img  src="../Images/logo.jpg"  class="img-responsive" alt="Conxole Admin"/>
+                                    <img  src="../Images/logo.png"  class="img-responsive" alt="Conxole Admin"/>
                                     
                                 </div>
                             </div>
