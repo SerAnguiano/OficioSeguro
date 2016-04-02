@@ -13,12 +13,23 @@ and open the template in the editor.
 /*
  * General styles
  */
-body{
-    background: url("../Images/Google Maps_002.png");
-	background-color: #444;
-    background: url("../Images/pinlayer1.png"),url(../Images/pinlayer2.png),url("../Images/Google Maps_002.png");    
+
+
+body.principal{
+    background: url('../images/Google Maps_002.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
-.vertical-offset-100{
-    padding-top:100px;
+body.registro{
+    background: url('../images/Google Maps_001.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
+

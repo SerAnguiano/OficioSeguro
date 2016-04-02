@@ -12,15 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
   
-    <body>
-        
+    <body class="principal">
         <?php
             include("../MasterPage/MenuMaster.html");
         ?>
         <div class="container">
-            <?php
-                include("../MasterPage/home_v.1.html");
-            ?>
+           
         </div>
     </body>
             
