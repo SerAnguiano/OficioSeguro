@@ -9,12 +9,15 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     </head>
   
     <body class="registro">
 
         <div class="container">
-            <h1 class="well col-lg-8">REGISTRO</h1>
+            <h3 class="well col-lg-8">REGISTRO</h3>
             <div class="col-lg-8 well">
                 <div class="row">
                     <form action="inicio.php">
@@ -33,25 +36,25 @@
                             <label>Apellido Materno</label>
                             <input type="text" placeholder="Escribe tu apellido Materno aquí..." class="form-control">
                         </div>
- 
-                        <div class="col-sm-6 form-group">
-                            <label>Ciudad</label>
-                            <input type="text" placeholder="Escribe tu ciudad aquí..." class="form-control">
-                        </div>	
-
-                        <div class="col-sm-6 form-group">
-                            <label>Estado</label>
-                            <input type="text" placeholder="Escribe tu estado aquí..." class="form-control">
+                        
+                        <div class="col-sm-6 form-group" class="ui-widget">
+                            <label for="estado">Estado</label>
+                            <input type="text" id="estado" placeholder="Escribe tu ciudad aquí..." class="form-control">
                         </div>
                         
-                        <div class="form-group col-sm-8 form-group">
+                        <div class="col-sm-6 form-group" class="ui-widget">
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" id="ciudad" placeholder="Escribe tu ciudad aquí..." class="form-control">
+                        </div>
+                        
+                        <div class="col-sm-6 form-group">
                             <label>Teléfono</label>
                             <input type="text" placeholder="Escribe tu teléfono aquí..." class="form-control">		
                         </div>		
 
-                        <div class="form-group col-sm-8 form-group">
+                        <div class="col-sm-6 form-group">
                             <label>Correo</label>
-                            <input type="text" placeholder="Escribe tu correo aquí..." class="form-control">
+                            <input type="email" placeholder="Escribe tu correo aquí..." class="form-control">
                         </div>
                         
                         
@@ -76,3 +79,21 @@
     </body>
             
 </html>
+ <script>
+    $(function() 
+    {
+        $( "#estado" ).autocomplete
+        ({
+            source: '../Modelo/buscarEstado.php'
+        });
+    }
+    );
+    $(function() 
+    {
+        $( "#ciudad" ).autocomplete
+        ({
+            source: '../Modelo/buscarCiudad.php'
+        });
+    }
+    );
+</script>

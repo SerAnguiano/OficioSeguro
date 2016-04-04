@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+    session_start();
 
+    //Validar si se está ingresando con sesión correctamente 
+    //Si se creó una sesión se sigue adelante de lo contrario
+    // se regresa a la página del login.html, esto sirve para
+    // que no se pueda acceder directamente a esta página por
+    //URL.
+    if (!$_SESSION){
+        $mensaje= 'Usuario no autenticado';
+        $pagina= 'index.php';
+        
+        header('Location: ../vista/error.php?mensaje='.urlencode($mensaje).'&pagina='.urlencode($pagina));
+    }
+
+    //Recuperar las variables de nombre de usuario
+    $s_usuario = $_SESSION['s_usuario'];
+    $s_nombre = $_SESSION['s_nombre'];
+?>
+       
         <div id="wrapper">
         <div class="overlay"></div>
     
@@ -36,25 +49,26 @@ and open the template in the editor.
                     <a href="#">Contacto</a>
                 </li>
                 <li>
-                    <a href="index.php">Cerrar Sesión</a>
+                    <a href="../Modelo/cerrarSesion.php">Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>
+        
         <nav class="navbar navbar-default">
-            <div class="container-fluid " >
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="row">
-                  <div class="col-xs-6 col-sm-4" align="Center">
-                      <h1>INICIO</h1>
+                <div class="container-fluid " >
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="row">
+                      <div class="col-xs-6 col-sm-4" align="Center">
+                          <h1>INICIO</h1>
+                      </div>
+                      <div class="col-xs-6 col-sm-4" align="right">
+                        <h2>Hola! <?php echo $s_nombre ?></h2>
+                      </div>
+                      <div class="col-xs-6 col-sm-4" align="right">
+                          <img src="../Images/avatar.png" alt="" class="img-circle"/>
+                      </div>
                   </div>
-                  <div class="col-xs-6 col-sm-4" align="right">
-                    <h2>Hola!</h2>
-                  </div>
-                  <div class="col-xs-6 col-sm-4" align="right">
-                      <img src="../Images/avatar.png" alt="" class="img-circle"/>
-                  </div>
-              </div>
-            </div>
+                </div>
         </nav>
         <!-- /#sidebar-wrapper -->
             <div id="page-content-wrapper">
@@ -64,4 +78,3 @@ and open the template in the editor.
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
             </button>
- 

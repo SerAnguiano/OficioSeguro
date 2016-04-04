@@ -13,9 +13,11 @@
     </head>
   
     <body class="principal">
+        
         <?php
-            include("../MasterPage/MenuMaster.html");
+            include("../MasterPage/MenuMaster.php");
         ?>
+        
         <div class="container">
            
         </div>

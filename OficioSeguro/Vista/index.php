@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    //Si  hay sesión iniciada  se regresa  a inicio
+    if ($_SESSION)
+    {
+ 
+        header('Location: ../vista/inicio.php');
+    }
+   
+
+?>
 <html>
     <head>
         <title>Oficio Seguro</title>
@@ -14,6 +26,19 @@
    
     <body>
         <div class="container">
+            <?php 
+         @$errorLogin=$_GET['errorLogin'];
+        if ($errorLogin==1)
+        {
+            echo '<div class="alert alert-danger">';
+               echo '<h3>'; 
+               echo 'Usuario o contraseña incorrectos';
+               echo '</h3>';
+           echo'</div>';
+        }
+        
+        ?>
+           
             <div class="row vertical-offset-100">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="panel panel-default">
@@ -30,12 +55,13 @@
                             
                         </div>
                   	<div class="panel-body">
-                            <form accept-charset="UTF-8" role="form">
+                            <form accept-charset="UTF-8" name="acceso" action="../Modelo/querys.php" method="post" role="form">;
+                                
                                 <fieldset>
-			    	
+			    	                               
                                     <div class="form-group has-feedback">
 
-                                        <input Class="form-control required" placeholder="E-mail" name="email" type="text">
+                                        <input Class="form-control required" placeholder="Usuario" name="usuario" type="text">
                                         
                                         <i class="glyphicon glyphicon glyphicon-lock form-control-feedback"></i>
 			    		
@@ -43,7 +69,7 @@
 			    	
                                     <div class="form-group has-feedback">
 			    	
-                                        <input Class="form-control required" placeholder="Password" name="password" type="password" value="">
+                                        <input Class="form-control required" placeholder="Password" name="contrasennia" type="password" value="">
                                         
                                         <i class="glyphicon glyphicon-user form-control-feedback"></i>
                                         
@@ -52,15 +78,15 @@
                                     <div class="checkbox">
 			    	    	
 			    	    </div>
-                
-                                    <input class="btn btn-lg btn-primary btn-block" type="button" value="Login" OnClick="return Validar()"><br/>
+                                    <input type="hidden" name="metodo" value="login"/>
+                                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" OnClick=""><br/>
                         
                                     <div align="center">
                             
                                         <h5>¿No tienes cuenta? Registrate ahora <a href="Registro.php">aquí</a></h5>
                         
                                     </div>
-			    	
+                                   
                                 </fieldset>
 			      	
                             </form>
@@ -78,6 +104,7 @@
 </html>
 
 <script>
+
 function Validar() {
             var error = 0;
             var inputs = document.getElementsByClassName('form-control required');
