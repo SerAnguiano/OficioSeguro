@@ -66,8 +66,17 @@
                         <div class="col-sm-6 form-group">
                             <label>Contraseña</label>
                             <input type="text" placeholder="Escribe tu contraseña aquí..." class="form-control">
-                        </div>						
-
+                        </div>
+                        
+                        
+                        <form action="validacion.php" method="POST" enctype="multipart/form-data">
+                            <div class="col-sm-6 form-group">
+                                <label>Imagen:</label>
+                                <input type="file" name="foto" id="foto">
+                            </div>
+                        </form>
+                        
+                        
                         <div class="col-sm-6 form-group">
                             <button type="submit" class="btn-lg btn-primary">Registrarme</button>					
                         </div>
