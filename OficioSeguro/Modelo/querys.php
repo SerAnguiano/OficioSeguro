@@ -18,8 +18,11 @@ $con=  conexion();
         
         if (!$fila[0]) //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
         {
-                $mensaje=1;
-        header('Location: ../vista/index.php?errorLogin='.urlencode($mensaje));
+            //marcas el indicador error para activarlo en la pagina a la que se  redirecciona
+                $activarMensaje=1;
+                $mensaje="Usuario o contraseña incorrectos";
+                //redireccionamos a la pagina con el contenido de la variable mensaje
+        header('Location: ../vista/index.php?errorLogin='.urlencode($activarMensaje).'&mensaje='.  urlencode($mensaje));
         }
         else //opcion2: Usuario logueado correctamente
         {

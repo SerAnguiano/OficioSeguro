@@ -19,7 +19,7 @@
         <link href="../css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
-        <link href='../Images/avatar.png' rel='shortcut icon' type='image/png'>
+        <link href='../Images/icon.png' rel='shortcut icon' type='image/png'>
         <script src="../js/jslogin.js" type="text/javascript"></script>
         
     </head>
@@ -28,12 +28,13 @@
         <div class="container">
             <?php 
          @$errorLogin=$_GET['errorLogin'];
+         @$mensae=$_GET['mensaje'];
         if ($errorLogin==1)
         {
             echo '<div class="alert alert-danger">';
-               echo '<h3>'; 
-               echo 'Usuario o contraseña incorrectos';
-               echo '</h3>';
+               echo '<h4>'; 
+               echo $mensae;
+               echo '</h4>';
            echo'</div>';
         }
         
@@ -79,11 +80,11 @@
 			    	    	
 			    	    </div>
                                     <input type="hidden" name="metodo" value="login"/>
-                                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" OnClick=""><br/>
+                                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar" OnClick=""><br/>
                         
                                     <div align="center">
                             
-                                        <h5>¿No tienes cuenta? Registrate ahora <a href="Registro.php">aquí</a></h5>
+                                        <h5>¿No tienes cuenta? Registrate ahora <a href="registro.php">aquí</a></h5>
                         
                                     </div>
                                    
