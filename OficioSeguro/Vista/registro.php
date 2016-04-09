@@ -6,21 +6,24 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="../js/jsmenu.js" type="text/javascript"></script>
         <link href="../css/cssfondo.css" rel="stylesheet" type="text/css"/>
-        <title>TODO supply a title</title>
+        <title>Registro</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link href='../Images/icon.png' rel='shortcut icon' type='image/png'>
     </head>
   
     <body class="registro">
 
         <div class="container">
+            
             <h3 class="well col-lg-8">REGISTRO</h3>
+            
             <div class="col-lg-8 well">
                 <div class="row">
-                    <form action="inicio.php">
+                    <form action="../Modelo/querys.php" method="POST">
                  
                         <div class="col-sm-8 form-group">
                             <label>Nombre(s)</label>
@@ -68,15 +71,70 @@
                             <input type="text" placeholder="Escribe tu contraseña aquí..." class="form-control">
                         </div>
                         
-                        <div class="col-sm-6 form-group">
-                            <button type="submit" class="btn-lg btn-primary">Registrarme</button>					
+                        
+                            <div class="col-sm-6 form-group">
+                                <label for="oficioauto">Oficio 1</label>
+                                <input type="text" name="oficio1" id="oficioauto" placeholder="Escribe tu oficio aquí..." class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Habilidades Oficio 1</label>
+                                <textarea  value=" " name="habilidaad1" placeholder="Escribe tus habilidades en este oficio..." rows="2" class="form-control"></textarea>
+                            </div>
+                      
+                        <div id="oficio2" class="primero">
+                            <div class="col-sm-6 form-group">
+                                <label for="oficioauto">Oficio 2</label>
+                                <input type="text" name="oficio2" id="oficioauto2" placeholder="Escribe tu oficio aquí..." class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Habilidades Oficio 2</label>
+                                <textarea  value="" name="habilidaad2" placeholder="Escribe tus habilidades en este oficio..." rows="2" class="form-control"></textarea>
+                            </div>
+                        </div> 
+                            
+                        <div id="oficio3" class="primero">
+                            <div class="col-sm-6 form-group">
+                                <label for="oficioauto">Oficio 3</label>
+                                <input type="text" name="oficio3" id="oficioauto3" placeholder="Escribe tu oficio aquí..." class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Habilidades Oficio 3</label>
+                                <textarea  value="" name="habilidaad3" placeholder="Escribe tus habilidades en este oficio..." rows="2" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div id="oficio4" class="primero">
+                            <div class="col-sm-6 form-group">
+                                <label for="oficioauto">Oficio 4</label>
+                                <input type="text" name="oficio4" id="oficioauto4" placeholder="Escribe tu oficio aquí..." class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Habilidades Oficio 4</label>
+                                <textarea  value="" name="habilidaad4" placeholder="Escribe tus habilidades en este oficio..." rows="2" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div id="oficio5" class="primero">
+                            <div class="col-sm-6 form-group">
+                                <label for="oficioauto">Oficio 5</label>
+                                <input type="text" name="oficio5" id="oficioauto5" placeholder="Escribe tu oficio aquí..." class="form-control">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Habilidades Oficio 5</label>
+                                <textarea  value="" name="habilidaad5" placeholder="Escribe tus habilidades en este oficio..." rows="2" class="form-control"></textarea>
+                            </div>
                         </div>
                         
+                        <div class="col-sm-6 form-group">
+                            <i type="button" onclick="agregar_caja()" class="glyphicon glyphicon-plus-sign btn-circle"><label class="">Agregar oficio</label></i>
+                        </div>
+                        <input type="hidden" name="metodo" value="registro"/>
+                        <input type="hidden" id="oficios" name="oficios" value="1"/>
+                        <div class="col-sm-6 form-group">
+                            <button type="submit" class="btn-lg btn-primary">Registrarme</button>
+                        </div>
                     </form> 
-                    
-                </div>
-                <h5>¿Ya tienes cuenta? Inicia sesión <a href="index.php">aquí</a></h5>
+            
             </div>
+                <h5>¿Ya tienes cuenta? Inicia sesión <a href="index.php">aquí</a></h5>
 	</div>
     </body>
             
@@ -98,4 +156,68 @@
         });
     }
     );
+    
+    $(function() 
+    {
+        $( "#oficioauto" ).autocomplete
+        ({
+            source: '../Modelo/buscarOficios.php'
+        });
+    }
+    );
+    
+     $(function() 
+    {
+        $( "#oficioauto2" ).autocomplete
+        ({
+            source: '../Modelo/buscarOficios.php'
+        });
+    }
+    );
+    
+    $(function() 
+    {
+        $( "#oficioauto3" ).autocomplete
+        ({
+            source: '../Modelo/buscarOficios.php'
+        });
+    }
+    );
+    
+    $(function() 
+    {
+        $( "#oficioauto4" ).autocomplete
+        ({
+            source: '../Modelo/buscarOficios.php'
+        });
+    }
+    );
+   
+   $(function() 
+    {
+        $( "#oficioauto5" ).autocomplete
+        ({
+            source: '../Modelo/buscarOficios.php'
+        });
+    }
+    ); 
+ </script>
+ 
+ <script>
+var oficios=2;
+function agregar_caja(){
+     
+    if(oficios<=5)
+    {
+        document.getElementById("oficio"+oficios+"").className='';
+         document.getElementById("oficios").value=oficios;
+        oficios=oficios+1;
+       
+    }
+    else
+    {
+        alert("Solo se permite dar de alta 5 oficios");
+    }
+
+}
 </script>

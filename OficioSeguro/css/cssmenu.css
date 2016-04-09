@@ -33,3 +33,26 @@ and open the template in the editor.
     .navbar .nav-collapse .navbar-form { margin: 0; }
     .nav-collapse>li { float: none; }
 }
+
+.primero,.segundo {
+		display:none;
+		padding:5px;
+		border:1px solid #ccc;
+		background-color:#f1f1f1;
+		position:relative;
+		width:200px;
+	}
+	#segundo {
+		position:absolute;
+		top:100px;
+	}
+	/* Al pasar el mouse por encima del div mostramos el div con la
+		clase ".primero". Esta clase, tiene que estar dentro del id
+		"primero" para que pueda funcionar
+	 */
+	#primero:hover .primero {
+		display:block;
+	}
+	#segundo:hover .segundo {
+		display:block;
+	}

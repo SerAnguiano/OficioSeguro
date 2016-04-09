@@ -6,7 +6,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="../js/jsmenu.js" type="text/javascript"></script>
         <link href="../css/cssfondo.css" rel="stylesheet" type="text/css"/>
-        <title>TODO supply a title</title>
+        <title>Trabajos terminados</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='../Images/icon.png' rel='shortcut icon' type='image/png'>

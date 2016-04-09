@@ -2,8 +2,9 @@
 require '../Conexion/Datos.php';
 
 $con=  conexion();
+$metodo= $_POST["metodo"];
 
- if($_POST["metodo"]=="login")
+ if($metodo=="login")
  {
         if($con!="-1")
     {
@@ -44,4 +45,10 @@ $con=  conexion();
     }
  }
 
+if($metodo=="registro")
+ {
+        $usuario=$_POST["oficios"];  
+        echo $usuario;
+    
+ }
 ?>
