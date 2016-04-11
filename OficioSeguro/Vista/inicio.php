@@ -9,18 +9,21 @@
         <link href="../css/cssfondo.css" rel="stylesheet" type="text/css"/>
         <title>Inicio</title>
         <meta charset="UTF-8">
+        <script src="../js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="../css/sweetalert.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='../Images/icon.png' rel='shortcut icon' type='image/png'>
+        
     </head>
   
-    <body class="principal">
-        
+    <body class="principal" >
+         
         <?php
             include("../MasterPage/menuMaster.php");
         ?>
         
         <div class="container">
-           
+          
         </div>
     </body>
             

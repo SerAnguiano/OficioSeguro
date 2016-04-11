@@ -21,7 +21,8 @@
         <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
         <link href='../Images/icon.png' rel='shortcut icon' type='image/png'>
         <script src="../js/jslogin.js" type="text/javascript"></script>
-        
+        <script src="../js/sweetalert-dev.js"></script>
+        <link rel="stylesheet" href="../css/sweetalert.css">
     </head>
    
     <body>
@@ -56,7 +57,7 @@
                             
                         </div>
                   	<div class="panel-body">
-                            <form accept-charset="UTF-8" name="acceso" action="../Modelo/querys.php" method="post" role="form">;
+                            <form accept-charset="UTF-8" name="acceso" action="../Modelo/querys.php" method="post" role="form" onsubmit="Validar()">;
                                 
                                 <fieldset>
 			    	                               
@@ -70,7 +71,7 @@
 			    	
                                     <div class="form-group has-feedback">
 			    	
-                                        <input Class="form-control required" placeholder="Password" name="contrasennia" type="password" value="">
+                                        <input Class="form-control required" placeholder="Contraseña" name="contrasennia" type="password" value="">
                                         
                                         <i class="glyphicon glyphicon-user form-control-feedback"></i>
                                         
@@ -80,11 +81,11 @@
 			    	    	
 			    	    </div>
                                     <input type="hidden" name="metodo" value="login"/>
-                                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar" OnClick=""><br/>
+                                    <input class="btn btn-lg btn-primary btn-block" type="button" value="Entrar" OnClick="Validar()"><br/>
                         
                                     <div align="center">
                             
-                                        <h5>¿No tienes cuenta? Registrate ahora <a href="registro.php">aquí</a></h5>
+                                        <h5>¿No tienes cuenta? Registrate ahora <a href="../Vista/eligeRegistro.php">aquí</a></h5>
                         
                                     </div>
                                    
@@ -107,22 +108,17 @@
 <script>
 
 function Validar() {
-            var error = 0;
-            var inputs = document.getElementsByClassName('form-control required');
-            for (var z = 0; z < inputs.length; z++) {
-                var input = document.getElementsByName(inputs[z].name)[0];
-                if (input.value == "" || input.value == "0") {
-                    var formgroup = input.parentNode.parentElement;
-                    formgroup.className = 'form-group has-error required';
-                    error = error + 1;
-                }
-                else {
-                    var formgroup = input.parentNode.parentElement;
-                    formgroup.className = 'form-group required';
-                }
-            }
-            if (error > 0) {
-                return false;
-            }
-        }
-       </script>
+    var usuario = document.forms[0].usuario.value.length;
+    var contrasennia = document.forms[0].contrasennia.value.length;
+    
+    if(usuario==0||contrasennia==0) 
+    { 
+        swal("Oops...", "Debes ingresar usuario y contraseña para entrar ", "error");
+        return false;
+    }
+    else
+    {
+        document.forms[0].submit();
+    }
+}
+</script>

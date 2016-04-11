@@ -4,7 +4,7 @@ function conexion()
 {
       @$conectarse=mysql_connect("localhost","root")
         or die("No se pudo realizar la conexion");
-       @mysql_select_db("morlom",$conectarse)
+       @mysql_select_db("morlompruebas",$conectarse)
 	or die("ERROR con la base de datos");
       
 //if (mysqli_connect_errno())

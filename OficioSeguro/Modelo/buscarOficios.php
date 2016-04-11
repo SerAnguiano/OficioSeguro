@@ -2,7 +2,7 @@
 $dbHost = 'localhost';
 $dbUsername = 'root';
 $dbPassword = '';
-$dbName = 'morlom';
+$dbName = 'morlompruebas';
 //connect with the database
 $db = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
 //get search term
