@@ -35,6 +35,9 @@
                  <?php 
              @$errorLogin=$_GET['errorRegistro'];
              @$mensae=$_GET['mensaje'];
+             @$nombres=$_GET['nombres'];
+             @$aPellidoP=$_GET['apellidoP'];
+             @$apellidoM=$_GET['apellidoM'];
             if ($errorLogin==1)
             {
                 echo '<div class="alert alert-danger">';

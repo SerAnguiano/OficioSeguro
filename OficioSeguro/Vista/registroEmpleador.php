@@ -33,12 +33,15 @@
         <div class="container">
                  <?php 
              @$errorLogin=$_GET['errorRegistro'];
-             @$mensae=$_GET['mensaje'];
+             @$mensaje=$_GET['mensaje'];
+             @$nombres=$_GET['nombresE'];
+             @$aPellidoP=$_GET['apellidoPE'];
+             @$apellidoM=$_GET['apellidoME'];
             if ($errorLogin==1)
             {
                 echo '<div class="alert alert-danger">';
                    echo '<h4>'; 
-                   echo $mensae;
+                   echo $mensaje;
                    echo '</h4>';
                echo'</div>';
             }
@@ -52,27 +55,27 @@
 
                             <div class="col-sm-8 form-group">
                                 <label>Nombre(s)</label>
-                                <input type="text" id="nombres" name="nombresE" placeholder="Escribe tu(s) nombre(s) aquí..." class="form-control">
+                                <input type="text" id="nombres" name="nombresE" value='<?Php echo $nombres?>' placeholder="Escribe tu(s) nombre(s) aquí..." class="form-control">
                             </div>
 
                             <div class="col-sm-6 form-group">
                                 <label>Apellido Paterno</label>
-                                <input type="text" name="apellidoPE" placeholder="Escribe tu apellido paterno aquí..." class="form-control">
+                                <input type="text" name="apellidoPE" value='<?Php echo $aPellidoP?>' placeholder="Escribe tu apellido paterno aquí..." class="form-control">
                             </div>
 
                             <div class="col-sm-6 form-group">
                                 <label>Apellido Materno</label>
-                                <input type="text" name="apellidoME" placeholder="Escribe tu apellido Materno aquí..." class="form-control">
+                                <input type="text" name="apellidoME" value='<?Php echo $apellidoM?>' placeholder="Escribe tu apellido Materno aquí..." class="form-control">
                             </div>
 
                             <div class="col-sm-6 form-group" class="ui-widget">
                                 <label for="estadoE">Estado</label>
-                                <input type="text" name="estadoE" id="estadoE" placeholder="Escribe tu ciudad aquí..." class="form-control">
+                                <input type="text" name="estadoE" id="estadoE"  placeholder="Escribe tu ciudad aquí..." class="form-control">
                             </div>
 
                             <div class="col-sm-6 form-group" class="ui-widget">
                                 <label for="ciudadE">Ciudad</label>
-                                <input type="text" name="ciudadE" id="ciudadE" placeholder="Escribe tu ciudad aquí..." class="form-control">
+                                <input type="text" name="ciudadE" id="ciudadE"  placeholder="Escribe tu ciudad aquí..." class="form-control">
                             </div>
 
                             <div class="col-sm-6 form-group">
@@ -82,7 +85,7 @@
 
                             <div class="col-sm-6 form-group">
                                 <label>Correo</label>
-                                <input type="email" name="correoE" placeholder="Escribe tu correo aquí..." class="form-control">
+                                <input type="email" name="correoE"  placeholder="Escribe tu correo aquí..." class="form-control">
                             </div>
 
 
