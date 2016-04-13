@@ -88,6 +88,11 @@
                                         <h5>¿No tienes cuenta? Registrate ahora <a href="../Vista/eligeRegistro.php">aquí</a></h5>
                         
                                     </div>
+                                    <div align="center">
+                            
+                                        <h5>¿Olvidaste tu contraseña? <a href="recuperarPassword.php">aquí­</a></h5>
+                        
+                                    </div>
                                    
                                 </fieldset>
 			      	

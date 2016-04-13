@@ -43,7 +43,7 @@ $con=  conexion();
                 //Definimos las variables de sesión y redirigimos a la página de usuario
                 $_SESSION['s_usuario'] = $fila['Usuario'];
                 $_SESSION['s_nombre'] = $fila['Nombre'];
-                $_SESSION['s_rol'] = $fila['Rol'];
+                $_SESSION['s_rol'] = $fila['IdRol'];
                 header("Location: ../vista/inicio.php");
         }
     }
@@ -585,6 +585,7 @@ $con=  conexion();
 						$_SESSION['s_usuario'] = $filaprin['Usuario'];
 						$_SESSION['s_nombre'] = $filaprin['Nombre'];
 						$_SESSION['s_rol'] = $filarprin['Rol'];
+                                                $_SESSION['s_rol'] = $fila['IdRol'];
 						header("Location: ../vista/inicio.php");
 					}
 				}
@@ -700,7 +701,7 @@ $con=  conexion();
                     }      
                     else //opcion2: Los datos se incertaron correctamente
                     {
-                        $consulta= "SELECT * FROM Persona WHERE usuario='$usuario'";
+                        $consulta= "SELECT * FROM Persona WHERE usuario='$usuario' AND Contrasenia = '".$contrasenia."'"; 
                         $resultado= mysql_query($consulta,$con) or die (mysql_error());
 			$filaprin=mysql_fetch_array($resultado); 
 			if (!$filaprin[0]) //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
@@ -736,7 +737,7 @@ $con=  conexion();
                     //Definimos las variables de sesión y redirigimos a la página de usuario
                     $_SESSION['s_usuario'] = $filaprin['Usuario'];
                     $_SESSION['s_nombre'] = $filaprin['Nombre'];
-                    $_SESSION['s_rol'] = $filarprin['Rol'];
+                    $_SESSION['s_rol'] = $filarprin['IdRol'];
                     header("Location: ../vista/inicio.php");
                 }
             }
