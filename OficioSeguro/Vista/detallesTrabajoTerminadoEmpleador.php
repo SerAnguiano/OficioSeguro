@@ -86,7 +86,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><textarea rows="3"  style="width:100%" type="text" name="Trabajo" readonly="readonly" ><?php echo "$fila[TDescripcion]"; ?></textarea></td>
+                                <td><textarea rows="3"  style="width:100%; border: none;" type="text" name="Trabajo" readonly="readonly" ><?php echo "$fila[TDescripcion]"; ?></textarea></td>
                             </tr>
                         </tbody>
                         <thead>
@@ -97,7 +97,7 @@
                         <tbody>
                             <tr>
                                 <input type="hidden" id="metodo" name="metodo" value=""/>
-                                <td><input type="text"   name="Fecha_Publicacion" value='<?php echo "$fila[fechpublic]"; ?>' readonly="readonly" ></td>
+                                <td><input type="text" style="border: none;"  name="Fecha_Publicacion" value='<?php echo "$fila[fechpublic]"; ?>' readonly="readonly" ></td>
                             </tr>
                         </tbody>
                         <thead>
@@ -167,7 +167,7 @@
             </div>
             
             <div class="col-sm-4 form-group">
-                <a href="../Vista/trabajosCursoEmpleado.php"><button type="button" value="" class="btn-lg btn-primary">REGRESAR</button></a>
+                <a href="../Vista/trabajosTerminadosEmpleador.php"><button type="button" value="" class="btn-lg btn-primary">REGRESAR</button></a>
             </div>
             </form>
         </div>

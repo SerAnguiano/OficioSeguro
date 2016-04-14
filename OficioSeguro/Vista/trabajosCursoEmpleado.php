@@ -22,12 +22,11 @@
             $conexion = conexion();
             $usuario = $_SESSION['s_usuario'];
             
-            $consulta= "Select t.IdTrabajo TIdTrabajo, of.DescripcionOficio OFDescripcionOficio, t.Descripcion TDescripcion,
-                        concat(p.nombre,' ',p.ApellidoP)Nombre_Empleador
-                        From trabajo t
-                        Inner Join oficio of Inner Join empleador emple Inner Join persona p Inner Join empleado emp Inner Join Persona per
-                        Where of.IdOficio = t.IdOficio AND t.IdEmpleador = emple.IdEmpleador AND p.IdPersona = emple.IdPersona 
-                        AND t.IdEmpleado = emp.IdEmpleado AND per.IdPersona = emp.IdPersona AND per.usuario like '".$usuario."' AND t.IdEstatusTrabajo = 5;";
+            $consulta= "Select t.IdTrabajo TIdTrabajo, o.DescripcionOficio OFDescripcionOficio, t.Descripcion TDescripcion,
+                        concat(p.nombre,' ',p.ApellidoP)Nombre_Empleador, e.DescripcionEstatus
+                        from trabajo t inner join estatustrabajo e on t.IdEstatusTrabajo= e.IdEstatusTrabajo inner join oficio o on t.IdOficio = o.IdOficio
+                        inner join empleador em on t.IdEmpleador= em.IDEmpleador inner join Persona p on em.IdPersona=p.IdPersona
+                        where e.IdEstatusTrabajo=2 OR e.idEstatusTrabajo= 5 AND p.usuario='".$usuario."';";
             $resultado = mysql_query($consulta);
             
             ?>
@@ -45,6 +44,7 @@
                                 <th>Oficio</th>
                                 <th>Folio</th>
                                 <th>Contratante</th>
+                                <th>Estatus</th>
                                 <th>Detalle</th>
                             </tr>
                         </thead>
@@ -53,6 +53,7 @@
                                 <th>Oficio</th>
                                 <th>Folio</th>
                                 <th>Contratante</th>
+                                <th>Estatus</th>
                                 <th>Detalle</th>
                             </tr>
                         </tfoot>
@@ -64,8 +65,25 @@
                                 <td><input type="text" style="border:none;" value='<?php echo "$fila[OFDescripcionOficio]"; ?>'></td>
                                 <td><input type="text" style="border:none;" size="10" name="IdTrabajo" value='<?php echo "$fila[TIdTrabajo]"; ?>' readonly="readonly"></td>
                                 <td><label><?php echo "$fila[Nombre_Empleador]"; ?></label></td>
-                                <?php echo "<td><a href='detallesTrabajoEmpleado.php?IdTrabajo=".$fila['TIdTrabajo']."'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
-                            </tr>
+                                <?php
+                                if($fila['DescripcionEstatus']=="Pendiente")
+                                {
+                                ?>
+                                    <td class="alert-warning"><?php echo "$fila[DescripcionEstatus]"; ?></td>
+                                    <?php echo "<td><a href='detallesTrabajoEmpleado.php?IdTrabajo=".$fila['TIdTrabajo']."&tipo=pendiente'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                if($fila['DescripcionEstatus']=="En curso")
+                                {
+                                ?>
+                                    <td class="alert-info"><?php echo "$fila[DescripcionEstatus]"; ?></td>
+                                    <?php echo "<td><a href='detallesTrabajoEmpleado.php?IdTrabajo=".$fila['TIdTrabajo']."&tipo=curso'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
+                                <?php
+                                }
+                                ?>
+                                </tr>
                         </tbody>
             <?php                                              
             }            

@@ -22,16 +22,10 @@
             $conexion = conexion();
             $usuario = $_SESSION['s_usuario'];
             
-            $consulta= "Select t.IdTrabajo TIdTrabajo, of.DescripcionOficio OFDescripcionOficio, t.Descripcion TDescripcion, ET.Descripcionestatus DE
-                        From trabajo t
-                        Inner Join oficio of Inner Join empleador emple inner join persona per inner join estatustrabajo ET
-                        Where 
-                            of.IdOficio=t.IdOficio
-                        AND ET.IdEstatusTrabajo = t.IdEstatusTrabajo 
-                        AND t.IdEmpleador = emple.IdEmpleador 
-                        AND per.IdPersona= emple.IdPersona
-                        AND per.usuario like '".$usuario."'
-                        AND t.IdEstatusTrabajo = 2 OR t.IdEstatusTrabajo = 1;";
+            $consulta= "select IdTrabajo, DescripcionEstatus, DescripcionOficio
+            from trabajo t inner join estatustrabajo e on t.IdEstatusTrabajo= e.IdEstatusTrabajo inner join oficio o on t.IdOficio = o.IdOficio
+            inner join empleador em on t.IdEmpleador= em.IDEmpleador inner join Persona p on em.IdPersona=p.IdPersona
+            where e.IdEstatusTrabajo=1 OR e.IdEstatusTrabajo=2 OR e.idEstatusTrabajo= 5 AND p.usuario='".$usuario."';";
             $resultado = mysql_query($consulta);
             
             ?>
@@ -62,37 +56,40 @@
                         </tfoot>
             <?php
             while($fila = mysql_fetch_array($resultado)){
-                $idTrabajo=$fila['TIdTrabajo'];
+                $idTrabajo=$fila['IdTrabajo'];
                 ?>
                         <tbody>
                             <tr>
-                                <td><input type="text" style="border:none;" value='<?php echo "$fila[OFDescripcionOficio]"; ?>'></td>
-                                <td><input type="text" style="border:none;" size="10" name="IdTrabajo" value='<?php echo "$fila[TIdTrabajo]"; ?>' readonly="readonly"></td>
+                                <td><?php echo "$fila[DescripcionOficio]"; ?></td>
+                                <td><?php echo "$fila[IdTrabajo]"; ?></td>
                                 <?php
-                                if($fila['DE']=="Activo")
+                                if($fila['DescripcionEstatus']=="Activo")
                                 {
                                 ?>
-                                    <td class="alert-success"><?php echo "$fila[DE]"; ?></td>
+                                    <td class="alert-success"><?php echo "$fila[DescripcionEstatus]"; ?></td>
+                                    <?php echo "<td><a href='detallesTrabajoEmpleador.php?IdTrabajo=".$idTrabajo."&tipo=activo'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
                                 <?php
                                 }
                                 ?>
                                 <?php
-                                if($fila['DE']=="Pendiente")
+                                if($fila['DescripcionEstatus']=="Pendiente")
                                 {
                                 ?>
-                                    <td class="alert-warning"><?php echo "$fila[DE]"; ?></td>
+                                    <td class="alert-warning"><?php echo "$fila[DescripcionEstatus]"; ?></td>
+                                    <?php echo "<td><a href='detallesTrabajoEmpleador.php?IdTrabajo=".$idTrabajo."&tipo=pendiente'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
                                 <?php
                                 }
                                 ?>
                                 <?php
-                                if($fila['DE']=="En curso")
+                                if($fila['DescripcionEstatus']=="En curso")
                                 {
                                 ?>
-                                    <td class="alert-info"><?php echo "$fila[DE]"; ?></td>
+                                    <td class="alert-info"><?php echo "$fila[DescripcionEstatus]"; ?></td>
+                                    <?php echo "<td><a href='detallesTrabajoEmpleador.php?IdTrabajo=".$idTrabajo."&tipo=curso'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
                                 <?php
                                 }
                                 ?>
-                                <?php echo "<td><a href='detallesTrabajoEmpleador.php?IdTrabajo=".$idTrabajo."'><input type='submit' value='Detalle' class='btn btn-default'></a></td>"?>
+                                
                             </tr>
                         </tbody>
                       
