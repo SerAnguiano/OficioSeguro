@@ -33,8 +33,7 @@
         
     </body>
     
-</html>
-    
+</html> 
     <script>
     function elegir()
     {
@@ -53,5 +52,4 @@
             }
         });
     }
-    
 </script>

@@ -37,9 +37,9 @@
             $consulta= "Select t.IdTrabajo TIdTrabajo, of.DescripcionOficio OFDescripcionOficio, t.Descripcion TDescripcion,
                         concat(p.nombre,' ' ,p.ApellidoP,' ' ,p.ApellidoM)Nombre_Empleador, t.FechaPublicacion fechpublic
                         From trabajo t
-                        Inner Join oficio of Inner Join empleador emple Inner Join persona p Inner Join empleado emp Inner Join Persona per
+                        Inner Join oficio of Inner Join empleador emple Inner Join persona p  Inner Join Persona per
                         Where of.IdOficio = t.IdOficio AND t.IdEmpleador = emple.IdEmpleador AND p.IdPersona = emple.IdPersona 
-                        AND t.IdEmpleado = emp.IdEmpleado AND per.IdPersona = emp.IdPersona AND t.IdTrabajo =".$idTrabajo.";";
+                        AND per.IdPersona = emple.IdPersona AND t.IdTrabajo =".$idTrabajo.";";
             $resultado = mysql_query($consulta);
             
             ?>
@@ -109,10 +109,7 @@
             </div>
             
             <div class="col-sm-4 form-group">
-                <button type="button"  class="btn-lg btn-danger" onclick="cancelar()">CANCELAR</button>
-            </div>
-            <div class="col-sm-4 form-group">
-                <button type="button" value="" onclick="terminar()" class="btn-lg btn-warning" >TERMINAR</button>
+                <button type="button"  class="btn-lg btn-success" onclick="Aplicar()">APLICAR</button>
             </div>
             
             <div class="col-sm-4 form-group">
@@ -124,16 +121,16 @@
     </body>        
 </html>
 <script>
-    function cancelar()
+    function Aplicar()
     {
       
-        swal({   title: "¿Estas Seguro",   text: "Se cancelara este tabajo y no podras darle seguimiento!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Cancelar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
+        swal({   title: "¿Estas Seguro",   text: "Estas apunto de aplicar a esta  vacante!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Aplicar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
         function(isConfirm)
         {   
             if (isConfirm) 
             {     
-                swal("Listo!", "Trabajo Cancelado", "success");  
-                document.getElementById("metodo").value="cancelar";
+                swal("Listo!", "Trabajo aplicado", "success");  
+                document.getElementById("metodo").value="aplicar";
                 document.forms[0].submit();
             }
             else
@@ -143,23 +140,4 @@
         });
     }    
 </script>
-<script>
-        function terminar()
-    {
-      
-        swal({   title: "¿Estas Seguro",   text: "Se terminara este tabajo!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Terminar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
-        function(isConfirm)
-        {   
-            if (isConfirm) 
-            {     
-                swal("Listo!", "Trabajo Terminado", "success");  
-                document.getElementById("metodo").value="terminar";
-                document.forms[0].submit();
-            }
-            else
-            {
-               swal("Listo!", "Regreso", "success"); 
-            }
-        });
-    }
-</script>
+

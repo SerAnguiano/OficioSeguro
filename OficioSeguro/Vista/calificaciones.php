@@ -20,9 +20,12 @@
         ?>
         
 
-        <h1  align="center">
-            Calificaciones
-        </h1>
+        
+         <div class=container well col-lg-8 col-lg-offset-2>
+                <h1 class=well col-lg-8 col-lg-offset-2 ><strong>Calificaciones</strong></h1>
+             </div>
+            <br>
+            <br>
                 <h1 class="clasificacion" align="center">
                   <input id="radio1" type="radio" name="estrellas" value="5">
                   <label for="radio1">★</label>

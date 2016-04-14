@@ -49,7 +49,7 @@
               
               <li><a href="../Vista/"><h4>Inicio</h4></a></li>
               <li><a href="../Vista/trabajosCursoEmpleado.php"><h4>Trabajos en curso</h4></a></li>
-              <li><a href="../Vista/trabajosTerminados.php"><h4>Trabajos terminados</h4></a></li>
+              <li><a href="../Vista/trabajosTerminadosEmpleado.php"><h4>Trabajos terminados</h4></a></li>
               <li><a href="../Vista/calificaciones.php"><h4>Calificaciones</h4></a></li>
             <li><a href="../Modelo/cerrarSesion.php"><h4>Cerrar sesión</h4></a></li>
           </ul>
@@ -87,9 +87,9 @@
             <font color="#fff" size="5px">¡Hola, <?php echo $s_nombre ?>! </font>
           <ul class="nav navbar-nav navbar-right">
               
-              <li><a href="../Vista/"><h4>Inicio</h4></a></li>
-              <li><a href="../Vista/trabajosCurso.php"><h4>Trabajos en curso</h4></a></li>
-              <li><a href="../Vista/trabajosTerminados.php"><h4>Trabajos terminados</h4></a></li>
+              <li><a href="../Vista/OfrecerTrabajo.php"><h4>Inicio</h4></a></li>
+              <li><a href="../Vista/trabajosCursoEmpleador.php"><h4>Trabajos en curso</h4></a></li>
+              <li><a href="../Vista/trabajosTerminadosEmpleador.php"><h4>Trabajos terminados</h4></a></li>
               <li><a href="../Vista/calificaciones.php"><h4>Calificaciones</h4></a></li>
             <li><a href="../Modelo/cerrarSesion.php"><h4>Cerrar sesión</h4></a></li>
           </ul>

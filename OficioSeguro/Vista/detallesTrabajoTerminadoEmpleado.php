@@ -13,7 +13,8 @@
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script src="../js/sweetalert-dev.js"></script>
         <link rel="stylesheet" href="../css/sweetalert.css">
-        <title>Trabajos en curso</title>
+        <link href="../css/css-calificacion.css" rel="stylesheet" type="text/css"/>
+        <title>Trabajos terminados Empleado</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='../Images/icon.png' rel='shortcut icon' type='image/png'>
@@ -31,22 +32,20 @@
             require '../Conexion/Datos.php';     
             $conexion = conexion();
             $usuario = $_SESSION['s_usuario'];
-            $idTrabajo= $_GET['IdTrabajo'];
-            
+            $IdTrabajo= $_GET['IdTrabajo'];
             
             $consulta= "Select t.IdTrabajo TIdTrabajo, of.DescripcionOficio OFDescripcionOficio, t.Descripcion TDescripcion,
-                        concat(p.nombre,' ' ,p.ApellidoP,' ' ,p.ApellidoM)Nombre_Empleador, t.FechaPublicacion fechpublic
+                        concat(p.nombre,' ' ,p.ApellidoP,' ' ,p.ApellidoM)Nombre_Empleado, t.FechaPublicacion fechpublic,
+                        (cal.Calificacion + cal.Calidad + cal.Costo + cal.Tiempo) calificacion
                         From trabajo t
                         Inner Join oficio of Inner Join empleador emple Inner Join persona p Inner Join empleado emp Inner Join Persona per
+                        Inner join evalempleador cal
                         Where of.IdOficio = t.IdOficio AND t.IdEmpleador = emple.IdEmpleador AND p.IdPersona = emple.IdPersona 
-                        AND t.IdEmpleado = emp.IdEmpleado AND per.IdPersona = emp.IdPersona AND t.IdTrabajo =".$idTrabajo.";";
+                        AND t.IdEmpleado = emp.IdEmpleado AND cal.IdTrabajo=t.IdTrabajo AND per.IdPersona = emp.IdPersona AND t.IdTrabajo ='".$IdTrabajo."';";
             $resultado = mysql_query($consulta);
             
-            ?>
-        
-           
-            <?php
             while($fila = mysql_fetch_array($resultado)){
+                $calificacion=round($fila['calificacion']/5);
                 ?>
         <form method="POST" action="../Modelo/modificarTrabajoCursoEmpleado.php">
         <div class="table-responsive">
@@ -76,7 +75,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text"   style="border:none" name="Nombre_Empleador" size="50" value='<?php echo "$fila[Nombre_Empleador]"; ?>' readonly="readonly" ></td>
+                                <td><input type="text"   style="border:none" name="Nombre_Empleador" size="50" value='<?php echo "$fila[Nombre_Empleado]"; ?>' readonly="readonly" ></td>
                             </tr>
                         </tbody>
                     
@@ -101,6 +100,65 @@
                                 <td><input type="text"   name="Fecha_Publicacion" value='<?php echo "$fila[fechpublic]"; ?>' readonly="readonly" ></td>
                             </tr>
                         </tbody>
+                         <thead>
+                            <tr>
+                                <th>Calificación General</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h2 class="clasificacion" align="center">
+                                        
+                                        <?php if($calificacion==5){
+                                            echo '<input id="radio1" type="radio" name="estrellas" value="5" disabled checked>';  
+                                        }
+                                        else
+                                        {
+                                            echo '<input id="radio1" type="radio" name="estrellas" value="5" disabled>';  
+                                        }
+                                        ?>
+                                        <label for="radio1">★</label>
+                                        <?php if($calificacion==4){
+                                            echo '<input id="radio2" type="radio" name="estrellas" value="4" disabled checked>';  
+                                        }
+                                        else
+                                        {
+                                            echo '<input id="radio2" type="radio" name="estrellas" value="4" disabled>';  
+                                        }
+                                        ?>
+                                        <label for="radio2">★</label>
+                                        <?php if($calificacion==3){
+                                            echo '<input id="radio3" type="radio" name="estrellas" value="3" disabled checked>';  
+                                        }
+                                        else
+                                        {
+                                            echo '<input id="radio3" type="radio" name="estrellas" value="3" disabled>';  
+                                        }
+                                        ?>
+                                        <label for="radio3">★</label>
+                                        <?php if($calificacion==2){
+                                            echo '<input id="radio4" type="radio" name="estrellas" value="2" disabled checked>';  
+                                        }
+                                        else
+                                        {
+                                            echo '<input id="radio4" type="radio" name="estrellas" value="2" disabled>';  
+                                        }
+                                        ?>
+                                        <label for="radio4">★</label>
+                                        <?php if($calificacion==1){
+                                            echo '<input id="radio5" type="radio" name="estrellas" value="1" disabled checked>';  
+                                        }
+                                        else
+                                        {
+                                            echo '<input id="radio5" type="radio" name="estrellas" value="1" disabled>';  
+                                        }
+                                        ?>
+                                        <label for="radio5">★</label>
+                                    </h2>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
             <?php                                              
             }            
@@ -109,57 +167,10 @@
             </div>
             
             <div class="col-sm-4 form-group">
-                <button type="button"  class="btn-lg btn-danger" onclick="cancelar()">CANCELAR</button>
-            </div>
-            <div class="col-sm-4 form-group">
-                <button type="button" value="" onclick="terminar()" class="btn-lg btn-warning" >TERMINAR</button>
-            </div>
-            
-            <div class="col-sm-4 form-group">
-                <a href="../Vista/trabajosCursoEmpleado.php"><button type="button" value="" class="btn-lg btn-primary">REGRESAR</button></a>
+                <a href="../Vista/trabajosTerminadosEmpleado.php"><button type="button" value="" class="btn-lg btn-primary">REGRESAR</button></a>
             </div>
             </form>
         </div>
         </font>
     </body>        
 </html>
-<script>
-    function cancelar()
-    {
-      
-        swal({   title: "¿Estas Seguro",   text: "Se cancelara este tabajo y no podras darle seguimiento!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Cancelar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
-        function(isConfirm)
-        {   
-            if (isConfirm) 
-            {     
-                swal("Listo!", "Trabajo Cancelado", "success");  
-                document.getElementById("metodo").value="cancelar";
-                document.forms[0].submit();
-            }
-            else
-            {
-               swal("Listo!", "Regreso", "success"); 
-            }
-        });
-    }    
-</script>
-<script>
-        function terminar()
-    {
-      
-        swal({   title: "¿Estas Seguro",   text: "Se terminara este tabajo!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Terminar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
-        function(isConfirm)
-        {   
-            if (isConfirm) 
-            {     
-                swal("Listo!", "Trabajo Terminado", "success");  
-                document.getElementById("metodo").value="terminar";
-                document.forms[0].submit();
-            }
-            else
-            {
-               swal("Listo!", "Regreso", "success"); 
-            }
-        });
-    }
-</script>

@@ -23,7 +23,18 @@ if ($metodo=="terminar")
         }
     }
 
+if ($metodo=="aplicar") 
+    {  
+        $consulta= "UPDATE  trabajo SET IdEstatusTrabajo = 2, FechaTermino = now()  WHERE IdTrabajo=".$trabajo.";"; 
 
+        if (mysql_query($consulta,$conexion) === FALSE) {
+            header('Location: ../vista/recuperarPassword.php');
+        } 
+        else {
+            header('Location: ../vista/error.php');
+        }
+    }
+    
     if ($metodo=="cancelar") { 
         $consulta= "UPDATE  trabajo SET IdEstatusTrabajo = 4, FechaTermino = now() WHERE IdTrabajo=".$trabajo.";"; 
         if (mysql_query($consulta,$conexion) === FALSE) {

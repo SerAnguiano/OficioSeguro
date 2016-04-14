@@ -31,11 +31,11 @@
             require '../Conexion/Datos.php';     
             $conexion = conexion();
             $usuario = $_SESSION['s_usuario'];
-            $idTrabajo= $_GET['IdTrabajo'];
+            $idTrabajo=$_GET['IdTrabajo'];
             
             
             $consulta= "Select t.IdTrabajo TIdTrabajo, of.DescripcionOficio OFDescripcionOficio, t.Descripcion TDescripcion,
-                        concat(p.nombre,' ' ,p.ApellidoP,' ' ,p.ApellidoM)Nombre_Empleador, t.FechaPublicacion fechpublic
+                        concat(p.nombre,' ' ,p.ApellidoP,' ' ,p.ApellidoM)Nombre_Empleado, t.FechaPublicacion fechpublic
                         From trabajo t
                         Inner Join oficio of Inner Join empleador emple Inner Join persona p Inner Join empleado emp Inner Join Persona per
                         Where of.IdOficio = t.IdOficio AND t.IdEmpleador = emple.IdEmpleador AND p.IdPersona = emple.IdPersona 
@@ -76,7 +76,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text"   style="border:none" name="Nombre_Empleador" size="50" value='<?php echo "$fila[Nombre_Empleador]"; ?>' readonly="readonly" ></td>
+                                <td><input type="text"   style="border:none" name="Nombre_Empleador" size="50" value='<?php echo "$fila[Nombre_Empleado]"; ?>' readonly="readonly" ></td>
                             </tr>
                         </tbody>
                     
@@ -116,7 +116,7 @@
             </div>
             
             <div class="col-sm-4 form-group">
-                <a href="../Vista/trabajosCursoEmpleado.php"><button type="button" value="" class="btn-lg btn-primary">REGRESAR</button></a>
+                <a href="../Vista/trabajosCursoEmpleador.php"><button type="button" value="" class="btn-lg btn-primary">REGRESAR</button></a>
             </div>
             </form>
         </div>
@@ -127,7 +127,7 @@
     function cancelar()
     {
       
-        swal({   title: "¿Estas Seguro",   text: "Se cancelara este tabajo y no podras darle seguimiento!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Cancelar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
+        swal({   title: "¿Estas Seguro",   text: "Se cancelara este tabajo y nadie lo podrá ver!",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Sí, Cancelar",   cancelButtonText: "No, Regresar",   closeOnConfirm: false,   closeOnCancel: false },
         function(isConfirm)
         {   
             if (isConfirm) 

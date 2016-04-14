@@ -18,7 +18,7 @@ $con=  conexion();
     {
         //Consultar si los valores ingresados coinciden con los datos que están 
         //guardados en la base de datos
-        $consulta= "SELECT * FROM Persona WHERE usuario='".$usuario."' AND 
+        $consulta= "SELECT Usuario, Nombre, IdRol, IdPersona FROM Persona WHERE usuario='".$usuario."' AND 
                 Contrasenia='".$contrasenia."'"; 
         $resultado= mysql_query($consulta,$con) or die (mysql_error());
         $fila=mysql_fetch_array($resultado); 
@@ -44,6 +44,7 @@ $con=  conexion();
                 $_SESSION['s_usuario'] = $fila['Usuario'];
                 $_SESSION['s_nombre'] = $fila['Nombre'];
                 $_SESSION['s_rol'] = $fila['IdRol'];
+                $_SESSION['s_IdPersona'] = $fila['IdPersona'];
                 header("Location: ../vista/inicio.php");
         }
     }
@@ -584,8 +585,9 @@ $con=  conexion();
 						//Definimos las variables de sesión y redirigimos a la página de usuario
 						$_SESSION['s_usuario'] = $filaprin['Usuario'];
 						$_SESSION['s_nombre'] = $filaprin['Nombre'];
-						$_SESSION['s_rol'] = $filarprin['Rol'];
-                                                $_SESSION['s_rol'] = $fila['IdRol'];
+						$_SESSION['s_rol'] = $filaprin['Rol'];
+                                                $_SESSION['s_rol'] = $filaprin['IdRol'];
+                                                $_SESSION['s_IdPersona'] = $filaprin['IdPersona'];
 						header("Location: ../vista/inicio.php");
 					}
 				}
@@ -737,7 +739,8 @@ $con=  conexion();
                     //Definimos las variables de sesión y redirigimos a la página de usuario
                     $_SESSION['s_usuario'] = $filaprin['Usuario'];
                     $_SESSION['s_nombre'] = $filaprin['Nombre'];
-                    $_SESSION['s_rol'] = $filarprin['IdRol'];
+                    $_SESSION['s_rol'] = $filaprin['IdRol'];
+                    $_SESSION['s_IdPersona'] = $filaprin['IdPersona'];
                     header("Location: ../vista/inicio.php");
                 }
             }
